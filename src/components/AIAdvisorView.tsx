@@ -95,10 +95,21 @@ export function AIAdvisorView({
         }),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data: any = null;
+
+      try {
+        data = JSON.parse(text);
+      } catch (parseError) {
+        throw new Error(
+          response.ok
+            ? `API trả về dữ liệu không đúng định dạng JSON: ${text.slice(0, 200)}`
+            : `Lỗi API ${response.status}: ${text.slice(0, 200)}`
+        );
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || 'Tuyệt đỉnh AI đang bận, vui lòng thử lại sau ít phút.');
+        throw new Error(data.error || data.message || 'Tuyệt đỉnh AI đang bận, vui lòng thử lại sau ít phút.');
       }
 
       setReport(data.report);
