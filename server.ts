@@ -9,6 +9,8 @@ import dotenv from "dotenv";
 import { GoogleGenAI } from "@google/genai";
 
 // Initialize dotenv configuration
+// Support both .env.local (recommended by README) and .env files.
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 dotenv.config();
 
 async function startServer() {
