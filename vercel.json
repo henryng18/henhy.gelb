@@ -2,11 +2,7 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "nodejs20.x"
-    }
-  },
+  "serverlessFunctionRegion": "iad1",
   "rewrites": [
     {
       "source": "/api/(.*)",

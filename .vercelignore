@@ -1,0 +1,14 @@
+.git
+.gitignore
+README.md
+node_modules
+.env
+.env.local
+.DS_Store
+.vscode
+.idea
+server.ts
+vite.config.ts
+tsconfig.json
+*.test.ts
+*.spec.ts
