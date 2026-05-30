@@ -1,0 +1,6 @@
+{
+  "name": "HenHy",
+  "description": "Ứng dụng quản lý tài chính cá nhân thông minh HenHy - Tích hợp báo cáo AI phân tích chi tiêu cá nhân hóa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
