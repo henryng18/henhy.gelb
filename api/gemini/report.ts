@@ -91,7 +91,19 @@ Hãy viết một báo cáo phân tích sắc sảo, động viên tinh thần t
       },
     });
 
-    const reportText = response.text || 'HenHy AI đang bận pha cà phê rồi, xin vui lòng thử lại sau giây lát!';
+    // Extract text from response
+    let reportText = '';
+    if (response && response.candidates && response.candidates[0]) {
+      const content = response.candidates[0].content;
+      if (content && content.parts && content.parts[0]) {
+        reportText = content.parts[0].text || '';
+      }
+    }
+    
+    if (!reportText) {
+      reportText = 'HenHy AI đang bận pha cà phê rồi, xin vui lòng thử lại sau giây lát!';
+    }
+
     return res.status(200).json({ report: reportText });
   } catch (error: any) {
     console.error('Gemini reporting error:', error);
