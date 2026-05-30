@@ -28,8 +28,7 @@
   },
   "include": [
     "src",
-    "api",
-    "index.html"
+    "api"
   ],
   "exclude": [
     "node_modules",
